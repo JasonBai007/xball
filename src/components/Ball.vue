@@ -34,6 +34,8 @@ export default {
 </script>
 <style scoped lang="less">
 .ball {
+  // 去掉点击时蓝色背景
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 50%;
   transition: all 0.2s cubic-bezier(0.6, 4, 0.3, 0.8);
   &:hover {
