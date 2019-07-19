@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <ball></ball>
+      <ball color="#1ABC9C"></ball>
     </div>
     <div class="wrap">
-      <ball></ball>
+      <ball color="#3498DB"></ball>
     </div>
   </div>
 </template>

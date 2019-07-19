@@ -6,12 +6,14 @@ export default {
   name: "ball",
   data() {
     return {
-      radius: 10
+      radius: 10,
+      isDone: false
     };
   },
   computed: {
     styleObj() {
       return {
+        background: this.$attrs.color,
         width: this.radius + "vh",
         height: this.radius + "vh"
       };
@@ -20,18 +22,19 @@ export default {
   methods: {
     enlarge() {
       let r = this.radius;
-      this.radius = r + 1;
+      if (r < 50) {
+        this.radius = r + 5;
+      } else {
+        this.isDone = true;
+        this.radius = 1000;
+      }
     }
   }
 };
 </script>
 <style scoped lang="less">
 .ball {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
-  background: #197869;
   transition: all 0.2s;
   &:hover {
     cursor: pointer;
