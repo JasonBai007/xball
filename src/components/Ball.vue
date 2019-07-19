@@ -1,5 +1,5 @@
 <template>
-  <div class="ball" @click="enlarge" :style="styleObj"></div>
+  <div class="ball animated jello" @click="enlarge" :style="styleObj"></div>
 </template>
 <script>
 export default {
@@ -23,7 +23,7 @@ export default {
     enlarge() {
       let r = this.radius;
       if (r < 50) {
-        this.radius = r + 5;
+        this.radius = r + 2;
       } else {
         this.isDone = true;
         this.radius = 1000;
@@ -35,9 +35,12 @@ export default {
 <style scoped lang="less">
 .ball {
   border-radius: 50%;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.6, 4, 0.3, 0.8);
   &:hover {
     cursor: pointer;
+  }
+  &:focus {
+    outline: none;
   }
 }
 </style>
