@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <div class="ball" @click="enlarge" :style="styleObj"></div>
+      <ball></ball>
+    </div>
+    <div class="wrap">
+      <ball></ball>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Ball from "./components/Ball.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Ball
   },
   data() {
     return {
@@ -41,6 +44,9 @@ export default {
   margin: 0;
   padding: 0;
 }
+body {
+  background: #ecf0f1;
+}
 .wrap {
   width: 100%;
   height: 50vh;
@@ -48,18 +54,7 @@ export default {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #BDC3C7;
   overflow: hidden;
-}
-.ball {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #197869;
-  transition: all 0.2s;
-  &:hover {
-    cursor: pointer;
-  }
 }
 </style>
