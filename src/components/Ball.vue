@@ -1,5 +1,7 @@
 <template>
-  <div class="ball animated jello" @click="enlarge" :style="styleObj"></div>
+  <div>
+    <div class="ball animated bounceInLeft" @click="enlarge" :style="styleObj"></div>
+  </div>
 </template>
 <script>
 export default {
@@ -7,7 +9,8 @@ export default {
   data() {
     return {
       radius: 10,
-      isDone: false
+      isDone: false,
+      soundUrl: require("../../public/audios/ding.mp3")
     };
   },
   computed: {
@@ -24,6 +27,9 @@ export default {
       let r = this.radius;
       if (r < 50) {
         this.radius = r + 2;
+        // 每次点击播放音乐特效
+        let audio = new Audio(this.soundUrl);
+        audio.play();
       } else {
         this.isDone = true;
         this.radius = 1000;

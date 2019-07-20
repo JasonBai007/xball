@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <ball color="#1ABC9C"></ball>
+      <ball color="#1ABC9C" id='a1'></ball>
     </div>
     <div class="wrap">
-      <ball color="#3498DB"></ball>
+      <ball color="#3498DB" id='a2'></ball>
     </div>
   </div>
 </template>
@@ -54,7 +54,11 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-bottom: 1px solid #BDC3C7;
+  border-bottom: 1px solid #bdc3c7;
   overflow: hidden;
+  &:nth-child(2) {
+    transform: rotate(180deg);
+    border-bottom: none;
+  }
 }
 </style>
