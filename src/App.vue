@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <ball color="#1ABC9C" id='a1'></ball>
+      <ball color="#1ABC9C" id="b1"></ball>
     </div>
     <div class="wrap">
-      <ball color="#3498DB" id='a2'></ball>
+      <ball color="#3498DB" id="b2"></ball>
     </div>
   </div>
 </template>
@@ -19,21 +19,25 @@ export default {
   },
   data() {
     return {
-      radius: 10
+      isWin: false,
+      legendaryUrl: require("@/assets/audios/legendary.mp3"),
+      shutdownUrl: require("@/assets/audios/shutdown.mp3")
     };
   },
-  computed: {
-    styleObj() {
-      return {
-        width: this.radius + "vh",
-        height: this.radius + "vh"
-      };
-    }
-  },
+  computed: {},
   methods: {
-    enlarge() {
-      let r = this.radius;
-      this.radius = r + 1;
+    win() {
+      // 如果是第一个赢了，就播放天下无双，然后状态设置为已胜利
+      if (!this.isWin) {
+        this.playSound(this.legendaryUrl);
+        this.isWin = true;
+      } else {
+        this.playSound(this.shutdownUrl);
+      }
+    },
+    playSound(url) {
+      let audio = new Audio(url);
+      audio.play();
     }
   }
 };

@@ -10,8 +10,7 @@ export default {
     return {
       radius: 10,
       isDone: false,
-      dingUrl: require("../../public/audios/ding.mp3"),
-      victoryUrl: require("../../public/audios/victory.mp3")
+      dingUrl: require("@/assets/audios/ding.mp3")
     };
   },
   computed: {
@@ -26,26 +25,26 @@ export default {
   methods: {
     enlarge() {
       let r = this.radius;
+      // 如果半径比较小，就继续增加
       if (r < 50) {
         this.radius = r + 2;
         // 每次点击播放音乐特效
-        this.playSound(this.dingUrl);
-      } else {
+        let audio = new Audio(this.dingUrl);
+        audio.play();
+        // 一旦半径达到50，就触发一次父组件事件，然后就没了
+      } else if (r === 50) {
+        this.$parent.win();
         this.isDone = true;
         this.radius = 1000;
       }
-    },
-    playSound(url) {
-      let audio = new Audio(url);
-      audio.play();
     }
   },
   watch: {
-    isDone(n, o) {
-      if (n) {
-        this.playSound(this.victoryUrl);
-      }
-    }
+    // isDone(n, o) {
+    //   if (n) {
+    //     this.playSound(this.victoryUrl);
+    //   }
+    // }
   }
 };
 </script>
