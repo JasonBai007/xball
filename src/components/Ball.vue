@@ -10,7 +10,8 @@ export default {
     return {
       radius: 10,
       isDone: false,
-      soundUrl: require("../../public/audios/ding.mp3")
+      dingUrl: require("../../public/audios/ding.mp3"),
+      victoryUrl: require("../../public/audios/victory.mp3")
     };
   },
   computed: {
@@ -28,11 +29,19 @@ export default {
       if (r < 50) {
         this.radius = r + 2;
         // 每次点击播放音乐特效
-        let audio = new Audio(this.soundUrl);
+        let audio = new Audio(this.dingUrl);
         audio.play();
       } else {
         this.isDone = true;
         this.radius = 1000;
+      }
+    }
+  },
+  watch: {
+    isDone(n, o) {
+      if (n) {
+        let audio = new Audio(this.victoryUrl);
+        audio.play();
       }
     }
   }
