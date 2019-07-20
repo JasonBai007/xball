@@ -29,19 +29,21 @@ export default {
       if (r < 50) {
         this.radius = r + 2;
         // 每次点击播放音乐特效
-        let audio = new Audio(this.dingUrl);
-        audio.play();
+        this.playSound(this.dingUrl);
       } else {
         this.isDone = true;
         this.radius = 1000;
       }
+    },
+    playSound(url) {
+      let audio = new Audio(url);
+      audio.play();
     }
   },
   watch: {
     isDone(n, o) {
       if (n) {
-        let audio = new Audio(this.victoryUrl);
-        audio.play();
+        this.playSound(this.victoryUrl);
       }
     }
   }
