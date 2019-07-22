@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div class="ball animated bounceInLeft" @click="enlarge" :style="styleObj"></div>
+    <div class="ball animated bounceInLeft" :style="styleObj" :ref="$attrs.id"></div>
   </div>
 </template>
 <script>
+// 检测触摸手势的 JavaScript 库
+import Hammer from "hammerjs";
 export default {
   name: "ball",
   data() {
@@ -22,6 +24,14 @@ export default {
       };
     }
   },
+  mounted() {
+    // 初始化一个hammer实例
+    let hammer = new Hammer(this.$refs[this.$attrs.id]);
+    // 绑定tap事件，原始的click事件不管用，不能同时触发
+    hammer.on("tap", e => {
+      this.enlarge();
+    });
+  },
   methods: {
     enlarge() {
       let r = this.radius;
@@ -38,13 +48,6 @@ export default {
         this.radius = 1000;
       }
     }
-  },
-  watch: {
-    // isDone(n, o) {
-    //   if (n) {
-    //     this.playSound(this.victoryUrl);
-    //   }
-    // }
   }
 };
 </script>
