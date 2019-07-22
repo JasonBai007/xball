@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="ball animated bounceInLeft" :style="styleObj" :ref="$attrs.id"></div>
+    <div class="ball animated bounceInLeft" :style="styleObj" :ref="$attrs.id">
+      <!-- <img src="../assets/img/victory.png" alt="" width="200px"> -->
+    </div>
   </div>
 </template>
 <script>
@@ -53,6 +55,9 @@ export default {
 </script>
 <style scoped lang="less">
 .ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   // 去掉点击时蓝色背景
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 50%;
