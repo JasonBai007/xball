@@ -18,16 +18,6 @@ yarn run serve
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
 ## Stack
 1. vue
 2. vue-cli 3.x
