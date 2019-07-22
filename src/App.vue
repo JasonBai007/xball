@@ -58,11 +58,11 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-bottom: 1px solid #bdc3c7;
+  border-top: 1px dashed #bdc3c7;
   overflow: hidden;
-  &:nth-child(2) {
+  &:nth-child(1) {
     transform: rotate(180deg);
-    border-bottom: none;
+    border-top: none;
   }
 }
 </style>
