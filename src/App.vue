@@ -18,6 +18,12 @@
 <script>
 import Ball from "./components/Ball.vue";
 
+// 预加载图片
+let img1 = new Image()
+img1.src = require('./assets/img/victory.png')
+let img2 = new Image()
+img2.src =require('./assets/img/defeat.png')
+
 export default {
   name: "app",
   components: {
