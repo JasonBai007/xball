@@ -1,10 +1,16 @@
 <template>
   <div id="app">
     <div class="wrap">
-      <ball color="#1ABC9C" id="b1"></ball>
+      <ball color="#1ABC9C" id="b1">
+        <img src="./assets/img/victory.png" width="180px" v-if="isWin && winnerId === 'b1'" />
+        <img src="./assets/img/defeat.png" width="150px" v-if="isWin && winnerId === 'b2'" />
+      </ball>
     </div>
     <div class="wrap">
-      <ball color="#3498DB" id="b2"></ball>
+      <ball color="#3498DB" id="b2">
+        <img src="./assets/img/victory.png" width="180px" v-if="isWin && winnerId === 'b2'" />
+        <img src="./assets/img/defeat.png" width="150px" v-if="isWin && winnerId === 'b1'" />
+      </ball>
     </div>
   </div>
 </template>
@@ -20,11 +26,15 @@ export default {
   data() {
     return {
       isWin: false,
+      winnerId: "",
       legendaryUrl: require("@/assets/audios/legendary.mp3"),
       shutdownUrl: require("@/assets/audios/shutdown.mp3")
     };
   },
-  computed: {},
+  mounted() {
+    // 监听winner，只监听一次
+    this.$Bus.$once("getWinnerId", id => (this.winnerId = id));
+  },
   methods: {
     win() {
       // 如果是第一个赢了，就播放天下无双，然后状态设置为已胜利

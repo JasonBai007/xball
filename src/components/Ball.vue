@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="ball animated bounceInLeft" :style="styleObj" :ref="$attrs.id">
-      <!-- <img src="../assets/img/victory.png" alt="" width="200px"> -->
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -48,6 +48,8 @@ export default {
         this.$parent.win();
         this.isDone = true;
         this.radius = 1000;
+        // 将winnerId发送出去
+        this.$Bus.$emit("getWinnerId", this.$attrs.id);
       }
     }
   }
