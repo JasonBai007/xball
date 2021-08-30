@@ -1,6 +1,4 @@
 # xball（叉烧包）
-
-## QR Code
 ![screen](https://github.com/jasonBai007/Xball/raw/master/qr.png)
 
 ## Project setup
