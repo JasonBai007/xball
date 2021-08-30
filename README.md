@@ -1,5 +1,5 @@
 # xball（叉烧包）
-![screen](https://github.com/jasonBai007/Xball/raw/master/qr.png)
+<img src="https://github.com/jasonBai007/Xball/raw/master/qr.png" width="200px" />
 
 ## Project setup
 ```
